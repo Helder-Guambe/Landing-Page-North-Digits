@@ -1,4 +1,4 @@
-// src/hooks/useScrollReveal.js
+
 import { useEffect, useRef } from 'react';
 
 const useScrollReveal = (options = {}) => {
@@ -11,7 +11,7 @@ const useScrollReveal = (options = {}) => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         el.classList.add('reveal-visible');
-        observer.disconnect(); // anima só uma vez
+        observer.disconnect(); 
       }
     }, { threshold: 0.15, ...options });
 

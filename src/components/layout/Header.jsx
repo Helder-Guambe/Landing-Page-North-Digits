@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { FiPhone, FiMail, FiMapPin, FiSun, FiMoon } from 'react-icons/fi';
-import { FaWhatsapp, FaFacebook, FaInstagram, FaCode } from 'react-icons/fa';
+import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin, FaCode } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 
 const Header = () => {
@@ -32,7 +32,6 @@ const Header = () => {
     return () => window.removeEventListener('resize', ajustarPosicoes);
   }, []);
 
-  // Fechar menu ao clicar fora
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuAberto && !e.target.closest('.cabecalho') && !e.target.closest('.menu-overlay')) {
@@ -43,7 +42,6 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [menuAberto]);
 
-  // Bloquear scroll quando menu aberto
   useEffect(() => {
     document.body.style.overflow = menuAberto ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -57,20 +55,20 @@ const Header = () => {
           <div className="nd-topbar-info">
             <span><FiPhone size={11} /> +258 84 123 4567</span>
             <span><FiMail size={11} /> geral@northdigits.co.mz</span>
-            <span className="nd-topbar-address"><FiMapPin size={11} /> Av. Agostinho Neto, 123 - Maputo</span>
+            <span className="nd-topbar-address"><FiMapPin size={11} /> Av. Agostinho Neto, Maputo</span>
           </div>
           <div className="nd-topbar-social">
             <a href="https://wa.me/258841234567" target="_blank" rel="noopener noreferrer"><FaWhatsapp size={13} /></a>
             <a href="https://facebook.com/northdigits" target="_blank" rel="noopener noreferrer"><FaFacebook size={13} /></a>
             <a href="https://instagram.com/northdigits" target="_blank" rel="noopener noreferrer"><FaInstagram size={13} /></a>
+            <a href="https://linkedin.com/company/northdigits" target="_blank" rel="noopener noreferrer"><FaLinkedin size={13} /></a>
           </div>
         </div>
       </div>
 
-      {/* Header principal */}
+      {/* Header */}
       <header className="cabecalho" ref={headerRef}>
         <div className="nd-header-inner">
-          {/* Logo */}
           <div className="nd-logo">
             <a href="#home">
               <FaCode className="nd-logo-icon" />
@@ -78,22 +76,19 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Nav desktop */}
           <nav className="nd-nav-desktop">
             {links.map(link => (
               <a key={link.nome} href={link.href}>{link.nome}</a>
             ))}
           </nav>
 
-          {/* CTA desktop + tema */}
           <div className="nd-cta-desktop">
-            <a href="#contacto" className="nd-rainbow-btn">Cotação</a>
+            <a href="#Contacto" className="nd-rainbow-btn">Cotação</a>
             <button onClick={toggleTheme} className="nd-theme-btn" aria-label="Alternar tema">
               {theme === 'light' ? <FiMoon size={16} /> : <FiSun size={16} />}
             </button>
           </div>
 
-          {/* Hamburger mobile */}
           <button
             className={`nd-hamburger ${menuAberto ? 'nd-hamburger--open' : ''}`}
             onClick={() => setMenuAberto(!menuAberto)}
@@ -107,16 +102,13 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Overlay escuro */}
       <div
         className={`nd-overlay ${menuAberto ? 'nd-overlay--visible' : ''}`}
         onClick={() => setMenuAberto(false)}
         aria-hidden="true"
       />
 
-      {/* Drawer mobile */}
       <nav className={`nd-drawer ${menuAberto ? 'nd-drawer--open' : ''}`} aria-label="Menu mobile">
-        {/* Cabeçalho do drawer */}
         <div className="nd-drawer-header">
           <div className="nd-drawer-logo">
             <FaCode style={{ color: '#2563eb', fontSize: '1.2rem' }} />
@@ -136,7 +128,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Links */}
         <div className="nd-drawer-links">
           {links.map((link, i) => (
             <a
@@ -152,28 +143,23 @@ const Header = () => {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="nd-drawer-cta">
-          <a
-            href="#contacto"
-            className="nd-drawer-btn"
-            onClick={() => setMenuAberto(false)}
-          >
+          <a href="#contacto" className="nd-drawer-btn" onClick={() => setMenuAberto(false)}>
             Solicitar Cotação
           </a>
         </div>
 
-        {/* Info contacto no drawer */}
         <div className="nd-drawer-contact">
           <p><FiPhone size={12} /> +258 84 123 4567</p>
           <p><FiMail size={12} /> geral@northdigits.co.mz</p>
+          <p><FiMapPin size={12} /> Av. Agostinho Neto, 1562 Terraço Malhangalene, Maputo</p>
         </div>
 
-        {/* Redes sociais */}
         <div className="nd-drawer-socials">
           <a href="https://wa.me/258841234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp size={18} /></a>
           <a href="https://facebook.com/northdigits" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook size={18} /></a>
           <a href="https://instagram.com/northdigits" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram size={18} /></a>
+          <a href="https://linkedin.com/company/northdigits" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin size={18} /></a>
         </div>
       </nav>
 
@@ -254,7 +240,6 @@ const Header = () => {
         }
         .nd-logo-icon { color: #2563eb; font-size: 1.4rem; }
 
-        /* Nav desktop */
         .nd-nav-desktop {
           display: flex;
           gap: 2rem;
@@ -279,7 +264,6 @@ const Header = () => {
         }
         .nd-nav-desktop a:hover::after { width: 100%; }
 
-        /* CTA desktop */
         .nd-cta-desktop {
           justify-self: end;
           display: flex;
@@ -361,9 +345,7 @@ const Header = () => {
           opacity: 0;
           transition: opacity 0.3s ease;
         }
-        .nd-overlay--visible {
-          opacity: 1;
-        }
+        .nd-overlay--visible { opacity: 1; }
 
         /* ── DRAWER ── */
         .nd-drawer {
@@ -447,19 +429,13 @@ const Header = () => {
           transition: background 0.15s, color 0.15s;
           animation: ndSlideIn 0.3s ease both;
         }
-        .nd-drawer-link:hover {
-          background: #f0f7ff;
-          color: #2563eb;
-        }
+        .nd-drawer-link:hover { background: #f0f7ff; color: #2563eb; }
         .nd-drawer-arrow {
           font-size: 1.2rem;
           color: #cbd5e1;
           transition: transform 0.15s, color 0.15s;
         }
-        .nd-drawer-link:hover .nd-drawer-arrow {
-          transform: translateX(4px);
-          color: #2563eb;
-        }
+        .nd-drawer-link:hover .nd-drawer-arrow { transform: translateX(4px); color: #2563eb; }
         @keyframes ndSlideIn {
           from { opacity: 0; transform: translateX(16px); }
           to   { opacity: 1; transform: translateX(0); }
@@ -485,10 +461,7 @@ const Header = () => {
           box-shadow: 0 4px 14px rgba(0,0,0,0.2);
           transition: transform 0.2s, box-shadow 0.2s;
         }
-        .nd-drawer-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
+        .nd-drawer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
 
         .nd-drawer-contact {
           padding: 1rem 1.4rem 0.4rem;
@@ -510,10 +483,7 @@ const Header = () => {
           padding: 0.6rem 1.4rem 1.5rem;
           flex-shrink: 0;
         }
-        .nd-drawer-socials a {
-          color: #64748b;
-          transition: color 0.2s;
-        }
+        .nd-drawer-socials a { color: #64748b; transition: color 0.2s; }
         .nd-drawer-socials a:hover { color: #2563eb; }
 
         /* ── DARK MODE ── */
@@ -525,10 +495,7 @@ const Header = () => {
         html.dark-mode .nd-theme-btn { background: rgba(255,255,255,0.12); color: #fbbf24; }
         html.dark-mode .nd-bar { background: #e2e8f0; }
         html.dark-mode .nd-hamburger:hover { background: rgba(255,255,255,0.08); }
-        html.dark-mode .nd-drawer {
-          background: #0f172a;
-          box-shadow: -8px 0 40px rgba(0,0,0,0.5);
-        }
+        html.dark-mode .nd-drawer { background: #0f172a; box-shadow: -8px 0 40px rgba(0,0,0,0.5); }
         html.dark-mode .nd-drawer-header { border-color: #1e293b; }
         html.dark-mode .nd-drawer-close { background: #1e293b; color: #94a3b8; }
         html.dark-mode .nd-drawer-close:hover { background: #334155; }

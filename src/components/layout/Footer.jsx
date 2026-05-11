@@ -1,5 +1,5 @@
 import { FaFacebook, FaWhatsapp, FaInstagram, FaLinkedin, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { useTheme } from '../../context/ThemeContext'; // ← caminho corrigido
+import { useTheme } from '../../context/ThemeContext';
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="rodape" style={{ backgroundColor: footerBg }}>
       <div className="rodape-conteudo" style={{ padding: '40px 24px' }}>
-        {/* Coluna 1 - Sobre */}
+        {/*  Sobre */}
         <div>
           <h3 className="rodape-titulo" style={{ color: titleColor }}>North Digits</h3>
           <p style={{ marginTop: '0.5rem', lineHeight: '1.4', fontSize: '0.85rem', color: textColor }}>
@@ -22,7 +22,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Coluna 2 - Links rápidos */}
+        {/* Links rápidos */}
         <div className="rodape-links">
           <h4 style={{ color: titleColor, marginBottom: '0.8rem', fontSize: '1rem', fontWeight: 600 }}>Navegação</h4>
           <a href="#home" style={{ color: linkColor, display: 'block', marginBottom: '0.5rem', textDecoration: 'none', transition: 'color 0.2s' }}
@@ -39,11 +39,11 @@ const Footer = () => {
              onMouseLeave={(e) => e.currentTarget.style.color = linkColor}>Contacto</a>
         </div>
 
-        {/* Coluna 3 - Contacto e Redes Sociais */}
+        {/* Contacto e Redes Sociais */}
         <div>
           <h4 style={{ color: titleColor, marginBottom: '0.8rem', fontSize: '1rem', fontWeight: 600 }}>Contacto</h4>
           <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem', color: textColor, fontSize: '0.85rem' }}>
-            <FaMapMarkerAlt /> Maputo, Moçambique
+            <FaMapMarkerAlt /> Av. Agostinho Neto, 1562 Terraço Malhangalene, Maputo
           </p>
           <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem', color: textColor, fontSize: '0.85rem' }}>
             <FaEnvelope /> info@northdigits.co.mz
@@ -67,13 +67,13 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Coluna 4 - Mapa */}
+        {/*  Mapa */}
         <div>
           <h4 style={{ color: titleColor, marginBottom: '0.8rem', fontSize: '1rem', fontWeight: 600 }}>Onde estamos</h4>
           <div style={{ width: '100%', height: '150px', borderRadius: '12px', overflow: 'hidden', marginTop: '0.5rem' }}>
             <iframe
               title="Mapa North Digits"
-              src="https://maps.google.com/maps?q=Maputo,+Mo%C3%A7ambique&z=13&output=embed"
+              src="https://maps.google.com/maps?q=Av.+Agostinho+Neto+1562+Malhangalene+Maputo+Mo%C3%A7ambique&z=15&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

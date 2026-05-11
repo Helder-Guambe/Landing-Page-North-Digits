@@ -33,33 +33,23 @@ const servicosLista = [
     ],
   },
   {
-    titulo: 'Alfabetização Digital & Treinamento',
+    titulo: 'Literacia Digital & Treinamento',
     imagem: '/treinamento.jpg',
     descricaoItens: [
-      'Capacitação em ferramentas digitais',
+      'Formacão e educação digital',
       'Workshops de segurança da informação',
       'Boas práticas para ambiente corporativo',
-      'Treinos personalizados por equipa',
+      'Treinos personalizados por equipa e comunidade',
     ],
   },
   {
-    titulo: 'Soluções Agri-Tech & MPME',
+    titulo: 'Soluções Agri-Tech MPME',
     imagem: '/Agri-tech.jpg',
     descricaoItens: [
       'Gestão de produção e rastreabilidade',
       'Marketplaces para produtos agrícolas',
       'Digitalização de pequenos negócios',
       'Automação de processos no campo',
-    ],
-  },
-  {
-    titulo: 'Importação Industrial & Máquinas',
-    imagem: '/importacao.jpg',
-    descricaoItens: [
-      'Fornecimento de equipamentos industriais',
-      'Logística e suporte técnico',
-      'Manutenção e assistência contínua',
-      'Consultoria em importação especializada',
     ],
   },
 ];
@@ -80,6 +70,8 @@ const FlipCard = ({ titulo, imagem, descricaoItens }) => {
   return (
     <div
       className="flip-card"
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
       onClick={() => setFlipped(!flipped)}
       role="button"
       tabIndex={0}
@@ -171,9 +163,6 @@ const Servicos = () => {
           height: 100%;
           object-fit: cover;
           transition: transform 0.3s ease;
-        }
-        .flip-card:hover .flip-card-image {
-          transform: scale(1.02);
         }
         .flip-card-title {
           position: absolute;
