@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-const SLOGAN = '// "Feito para o seu crescimento" não é apenas um slogan!';
+const SLOGAN = '// Feito para o seu crescimento!';
 
 const TypewriterBadge = () => {
   const [displayed, setDisplayed] = useState('');
@@ -145,7 +145,6 @@ const FlipWords = () => {
   );
 };
 
-// ── Título ────────────────────────────────────────────────────────────────────
 const AnimatedTitle = () => (
   <h1 className="hero-titulo">
     Tecnologia desenvolvida
@@ -154,7 +153,7 @@ const AnimatedTitle = () => (
   </h1>
 );
 
-// ── Botões ────────────────────────────────────────────────────────────────────
+
 const AnimatedButtons = () => {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -174,7 +173,6 @@ const AnimatedButtons = () => {
   );
 };
 
-// ── Hero ──────────────────────────────────────────────────────────────────────
 const Hero = () => (
   <section id="home" className="hero">
     <SubtleParticles />
