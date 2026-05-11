@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/northdig/public_html/
-    - /bin/cp -R build/* $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH
