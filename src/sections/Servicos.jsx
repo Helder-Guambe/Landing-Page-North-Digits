@@ -61,6 +61,7 @@ const scrollToContact = () => {
 
 const FlipCard = ({ titulo, imagem, descricaoItens }) => {
   const [flipped, setFlipped] = useState(false);
+  const isTouch = () => typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
@@ -70,9 +71,9 @@ const FlipCard = ({ titulo, imagem, descricaoItens }) => {
   return (
     <div
       className="flip-card"
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
-      onClick={() => setFlipped(!flipped)}
+      onMouseEnter={() => { if (!isTouch()) setFlipped(true); }}
+      onMouseLeave={() => { if (!isTouch()) setFlipped(false); }}
+      onClick={() => { if (isTouch()) setFlipped(prev => !prev); }}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setFlipped(!flipped)}

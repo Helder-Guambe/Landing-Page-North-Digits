@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { FiPhone, FiMail, FiMapPin, FiSun, FiMoon } from 'react-icons/fi';
-import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin, FaCode } from 'react-icons/fa';
+import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 
 const Header = () => {
@@ -71,8 +71,8 @@ const Header = () => {
         <div className="nd-header-inner">
           <div className="nd-logo">
             <a href="#home">
-              <FaCode className="nd-logo-icon" />
-              <span>North Digits</span>
+      
+              <img src="/SVG/8Artboard 8.svg" alt="North Digits" style={{ width: 'auto' }} />
             </a>
           </div>
 
@@ -111,8 +111,7 @@ const Header = () => {
       <nav className={`nd-drawer ${menuAberto ? 'nd-drawer--open' : ''}`} aria-label="Menu mobile">
         <div className="nd-drawer-header">
           <div className="nd-drawer-logo">
-            <FaCode style={{ color: '#2563eb', fontSize: '1.2rem' }} />
-            <span>North Digits</span>
+            <img src="/SVG/8Artboard 8.svg" alt="North Digits" height="40" style={{ width: 'auto' }} />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <button onClick={toggleTheme} className="nd-theme-btn-drawer" aria-label="Alternar tema">
@@ -220,25 +219,15 @@ const Header = () => {
           display: grid;
           grid-template-columns: 1fr auto 1fr;
           align-items: center;
-          padding: 0.65rem 24px;
+          padding: 0.4rem 24px;
           gap: 1rem;
         }
-        .nd-logo { justify-self: start; }
-        .nd-logo a {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.45rem;
-          text-decoration: none;
-          font-size: 1.25rem;
-          font-weight: 800;
-          letter-spacing: -0.3px;
-          background: linear-gradient(135deg, #2563eb, #1e40af);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          white-space: nowrap;
+      
+        .nd-logo img {
+          display: block;
+          width: 80px;
+          max-height: 90px; /* ← ALTERE AQUI para controlar o tamanho do logo */
         }
-        .nd-logo-icon { color: #2563eb; font-size: 1.4rem; }
 
         .nd-nav-desktop {
           display: flex;
@@ -313,26 +302,37 @@ const Header = () => {
           justify-content: center;
           align-items: center;
           gap: 5px;
-          width: 38px; height: 38px;
-          background: none;
+          width: 42px; height: 42px;
+          background: linear-gradient(135deg, #2563eb, #1e40af);
           border: none;
           cursor: pointer;
           padding: 4px;
-          border-radius: 8px;
-          transition: background 0.2s;
+          border-radius: 12px;
+          transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+          box-shadow: 0 2px 8px rgba(37,99,235,0.35);
+          position: relative;
+          z-index: 1050;
         }
-        .nd-hamburger:hover { background: rgba(0,0,0,0.06); }
+        .nd-hamburger:hover {
+          background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+          transform: scale(1.05);
+          box-shadow: 0 4px 14px rgba(37,99,235,0.5);
+        }
+        .nd-hamburger:active { transform: scale(0.95); }
         .nd-bar {
           display: block;
-          width: 22px; height: 2px;
-          background: #1f2937;
+          width: 20px; height: 2px;
+          background: #ffffff;
           border-radius: 2px;
-          transition: transform 0.3s cubic-bezier(0.23,1,0.32,1), opacity 0.2s;
+          transition: transform 0.3s cubic-bezier(0.23,1,0.32,1), opacity 0.2s, width 0.2s;
           transform-origin: center;
         }
+        .nd-bar--mid { width: 14px; }
+        .nd-hamburger--open .nd-bar--mid { width: 20px; }
         .nd-hamburger--open .nd-bar--top { transform: translateY(7px) rotate(45deg); }
         .nd-hamburger--open .nd-bar--mid { opacity: 0; transform: scaleX(0); }
         .nd-hamburger--open .nd-bar--bot { transform: translateY(-7px) rotate(-45deg); }
+        html.dark-mode .nd-hamburger { background: linear-gradient(135deg, #3b82f6, #2563eb); }
 
         /* ── OVERLAY ── */
         .nd-overlay {
@@ -377,12 +377,6 @@ const Header = () => {
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 1.1rem;
-          font-weight: 800;
-          background: linear-gradient(135deg, #2563eb, #1e40af);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
         }
         .nd-drawer-close {
           background: #f1f5f9;
@@ -493,8 +487,7 @@ const Header = () => {
         }
         html.dark-mode .nd-nav-desktop a { color: #e2e8f0; }
         html.dark-mode .nd-theme-btn { background: rgba(255,255,255,0.12); color: #fbbf24; }
-        html.dark-mode .nd-bar { background: #e2e8f0; }
-        html.dark-mode .nd-hamburger:hover { background: rgba(255,255,255,0.08); }
+        html.dark-mode .nd-hamburger:hover { background: linear-gradient(135deg, #2563eb, #1e40af); }
         html.dark-mode .nd-drawer { background: #0f172a; box-shadow: -8px 0 40px rgba(0,0,0,0.5); }
         html.dark-mode .nd-drawer-header { border-color: #1e293b; }
         html.dark-mode .nd-drawer-close { background: #1e293b; color: #94a3b8; }
@@ -511,15 +504,33 @@ const Header = () => {
         @media (max-width: 768px) {
           .nd-header-inner {
             grid-template-columns: 1fr auto;
-            padding: 0.55rem 16px;
+            padding: 0.2rem 16px;
           }
           .nd-nav-desktop, .nd-cta-desktop { display: none; }
           .nd-hamburger { display: flex; }
           .nd-overlay { display: block; }
+          
           .nd-topbar { padding: 0.35rem 16px; }
-          .nd-topbar-inner { flex-wrap: wrap; justify-content: center; gap: 0.3rem; }
-          .nd-topbar-info { justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+          .nd-topbar-inner {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+          }
+          .nd-topbar-info {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          }
+          .nd-topbar-info span:first-of-type {
+            margin-right: 8px;
+          }
+          .nd-topbar-info span:last-child {
+            margin-left: 4px;
+          }
           .nd-topbar-address { display: none; }
+          .nd-topbar-social {
+            gap: 0.9rem;
+          }
         }
         @media (max-width: 480px) {
           .nd-topbar-info span:last-child { display: none; }

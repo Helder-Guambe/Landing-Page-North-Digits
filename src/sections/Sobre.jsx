@@ -71,7 +71,7 @@ const Sobre = () => {
     conteudo: {
       flex: '1.2',
       minWidth: '280px',
-      textAlign: 'left',
+     
     },
     subtitulo: {
       color: isDark ? '#60a5fa' : '#3b82f6',
@@ -81,6 +81,7 @@ const Sobre = () => {
       letterSpacing: '2px',
       marginBottom: '15px',
       display: 'block',
+      textAlign: 'left', 
     },
     titulo: {
       fontSize: 'clamp(1.6rem, 4vw, 2.6rem)',
@@ -88,34 +89,36 @@ const Sobre = () => {
       color: isDark ? '#f1f5f9' : '#0f172a',
       fontWeight: '800',
       marginBottom: '20px',
+      textAlign: 'left', 
     },
     texto: {
       color: isDark ? '#cbd5e1' : '#64748b',
       fontSize: '16px',
       lineHeight: '1.7',
       marginBottom: '35px',
-      textAlign: 'justify',
+      textAlign: 'center',
       width: '100%',
     },
     containerNumeros: {
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'center', 
       borderTop: `1px solid ${isDark ? '#1e293b' : '#f1f5f9'}`,
       paddingTop: '30px',
       marginBottom: '35px',
-      gap: '10px',
+      gap: '40px',
       flexWrap: 'wrap',
     },
     numeroItem: {
-      textAlign: 'left',
-      flex: '1',
-      minWidth: '80px',
+      textAlign: 'center',
+      flex: '0 1 auto',
+      minWidth: '100px',
     },
     numeroValor: {
       fontSize: 'clamp(1.4rem, 4vw, 2rem)',
       fontWeight: '800',
       color: isDark ? '#60a5fa' : '#3b82f6',
       lineHeight: '1',
+      display: 'block',
     },
     numeroLabel: {
       fontSize: '11px',
@@ -128,7 +131,7 @@ const Sobre = () => {
     assinaturaContainer: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'flex-start',
+      justifyContent: 'center', 
       gap: '16px',
       marginTop: '20px',
     },
@@ -183,35 +186,43 @@ const Sobre = () => {
       maxHeight: '70vh',
       borderRadius: '16px',
       boxShadow: '0 25px 50px rgba(0,0,0,0.3)',
-      top: '50%',
     },
   };
 
   return (
     <>
-      <style>{`
-        @media (max-width: 600px) {
-          #sobre-inner {
-            flex-direction: column !important;
-            gap: 24px !important;
+      <style>
+        {`
+          @media (max-width: 600px) {
+            #sobre-inner {
+              flex-direction: column !important;
+              gap: 24px !important;
+            }
+            #sobre-imagem {
+              max-width: 100% !important;
+            }
+            #sobre-imagem img {
+              border-radius: 24px !important;
+            }
+            #sobre-conteudo {
+              min-width: unset !important;
+            }
+            #sobre-texto {
+              text-align: center !important;
+            }
+            /* Garante que subtítulo e título fiquem à esquerda também no mobile */
+            #sobre-subtitulo {
+              text-align: left !important;
+            }
+            #sobre-titulo {
+              text-align: left !important;
+            }
+            #sobre-assinatura {
+              justify-content: center !important;
+            }
           }
-          #sobre-imagem {
-            max-width: 100% !important;
-          }
-          #sobre-imagem img {
-            border-radius: 24px !important;
-          }
-          #sobre-conteudo {
-            min-width: unset !important;
-          }
-          #sobre-texto {
-            text-align: left !important;
-          }
-          #sobre-assinatura {
-            justify-content: flex-start !important;
-          }
-        }
-      `}</style>
+        `}
+      </style>
       <section ref={revealRef} id="sobre" className="reveal" style={styles.section}>
         <div id="sobre-inner" style={styles.innerContainer}>
           <div id="sobre-imagem" style={styles.containerImagem}>
@@ -223,12 +234,22 @@ const Sobre = () => {
           </div>
 
           <div id="sobre-conteudo" style={styles.conteudo}>
-            <span style={styles.subtitulo}>// SOBRE NÓS</span>
-            <h2 style={styles.titulo}>
-              Transformando <span style={{ color: isDark ? '#60a5fa' : '#3b82f6' }}>Ideias</span> em Realidade Digitais
+            <span id="sobre-subtitulo" style={styles.subtitulo}>
+              // SOBRE NÓS
+            </span>
+            <h2 id="sobre-titulo" style={styles.titulo}>
+              Transformando{' '}
+              <span style={{ color: isDark ? '#60a5fa' : '#3b82f6' }}>
+                Ideias
+              </span>{' '}
+              em Realidade Digitais
             </h2>
             <p id="sobre-texto" style={styles.texto}>
-              Oferecemos serviços de transformação digital ponta-a-ponta, desenvolvimento de software à medida e soluções orientadas por dados para empresas de diversos sectores. A North Digits foi fundada com uma missão clara de preencher a lacuna tecnológica em Moçambique e na região da África Austral, fornecendo produtos digitais abrangentes e integrados que geram resultados mensuráveis e sustentáveis.
+              A North Digits é uma empresa de soluções digitais especializada em transformação
+              digital, desenvolvimento de software personalizado e soluções orientadas por dados,
+              com foco em inovação e impacto. A empresa nasceu para acelerar a evolução tecnológica
+              em Moçambique, entregando produtos digitais integrados que impulsionam eficiência,
+              crescimento e resultados sustentáveis.
             </p>
 
             <div style={styles.containerNumeros}>
@@ -252,7 +273,7 @@ const Sobre = () => {
                 alt="Inocêncio Nanlelo - CEO"
                 style={{
                   ...styles.fotoCircular,
-                  ...(isHover && styles.fotoHover)
+                  ...(isHover && styles.fotoHover),
                 }}
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}

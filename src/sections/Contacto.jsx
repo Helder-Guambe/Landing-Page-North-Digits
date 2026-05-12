@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FaWhatsapp, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa';
+import { useTheme } from '../context/ThemeContext';
 
 const MultiStepLoader = ({ steps, loading, onComplete, onClose }) => {
   const [stepStatus, setStepStatus] = useState([]);
@@ -127,13 +129,15 @@ const MultiStepLoader = ({ steps, loading, onComplete, onClose }) => {
 };
 
 const SOCIAL_LINKS = [
-  { label: 'WhatsApp', icon: '📱', href: 'https://wa.me/258840000000' },
-  { label: 'Instagram', icon: '📸', href: 'https://instagram.com/northdigits' },
-  { label: 'Facebook', icon: 'f', href: 'https://facebook.com/northdigits' },
-  { label: 'LinkedIn', icon: 'in', href: 'https://linkedin.com/company/northdigits' },
+  { label: 'WhatsApp', icon: <FaWhatsapp size={18} />, href: 'https://wa.me/258840000000', color: '#25D366' },
+  { label: 'Instagram', icon: <FaInstagram size={18} />, href: 'https://instagram.com/northdigits', color: '#E1306C' },
+  { label: 'Facebook', icon: <FaFacebook size={18} />, href: 'https://facebook.com/northdigits', color: '#1877F2' },
+  { label: 'LinkedIn', icon: <FaLinkedin size={18} />, href: 'https://linkedin.com/company/northdigits', color: '#0A66C2' },
 ];
 
 const Contacto = () => {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const [formData, setFormData] = useState({
     nome: '', email: '', telefone: '', servico: '', mensagem: '',
   });
@@ -167,15 +171,15 @@ const Contacto = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const focusStyle = (field) => (focusedField === field ? { borderColor: '#3d56c2', background: '#fff' } : {});
+  const focusStyle = (field) => (focusedField === field ? { borderColor: '#3d56c2', background: isDark ? '#334155' : '#fff' } : {});
 
   const baseInputStyle = {
-    border: '1px solid #e0e4ef',
+    border: `1px solid ${isDark ? '#475569' : '#e0e4ef'}`,
     borderRadius: '8px',
     padding: '11px 14px',
     fontSize: '14px',
-    color: '#0d1b4b',
-    background: '#f8f9fc',
+    color: isDark ? '#f1f5f9' : '#0d1b4b',
+    background: isDark ? '#334155' : '#f8f9fc',
     outline: 'none',
     width: '100%',
     boxSizing: 'border-box',
@@ -222,21 +226,6 @@ const Contacto = () => {
         .info-block { position: relative; z-index: 1; }
         .info-title { color: #ffffff; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
         .info-text { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.8; }
-        .social-row {
-          display: flex; gap: 10px;
-          position: relative; z-index: 1;
-          margin-top: auto; flex-wrap: wrap;
-        }
-        .social-btn {
-          width: 40px; height: 40px;
-          border-radius: 50%;
-          background: #2a3f8f;
-          border: none; cursor: pointer;
-          display: flex; align-items: center; justify-content: center;
-          color: #fff; font-size: 16px;
-          transition: background 0.15s;
-          text-decoration: none;
-        }
         .form-panel {
           background-color: #ffffff;
           padding: 2.5rem;
@@ -314,6 +303,61 @@ const Contacto = () => {
             flex: unset;
           }
         }
+        /* ── DARK MODE CONTACTO ── */
+        html.dark-mode #contacto-section {
+          background-color: #0f172a;
+        }
+        html.dark-mode .contact-wrapper {
+          box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        html.dark-mode .info-panel {
+          background-color: #020a3a;
+        }
+        html.dark-mode .form-panel {
+          background-color: #1e293b;
+        }
+        html.dark-mode .eyebrow {
+          color: #60a5fa;
+        }
+        html.dark-mode .heading {
+          color: #f1f5f9;
+        }
+        html.dark-mode .field-label {
+          color: #94a3b8;
+        }
+        html.dark-mode .submit-btn {
+          background-color: #2563eb;
+        }
+        html.dark-mode .submit-btn:hover {
+          background-color: #1d4ed8;
+        }
+        html.dark-mode .success-banner {
+          background: #064e3b;
+          border-color: #065f46;
+          color: #6ee7b7;
+        }
+        .social-row {
+          display: flex; gap: 10px;
+          position: relative; z-index: 1;
+          margin-top: auto; flex-wrap: wrap;
+          align-items: center;
+        }
+        .social-btn {
+          width: 40px; height: 40px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.15);
+          cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          color: #fff; font-size: 16px;
+          transition: background 0.2s, transform 0.15s, border-color 0.2s;
+          text-decoration: none;
+        }
+        .social-btn:hover {
+          transform: translateY(-3px);
+          background: rgba(255,255,255,0.22);
+          border-color: rgba(255,255,255,0.4);
+        }
       `}</style>
 
       <section id="contacto-section">
@@ -341,13 +385,13 @@ const Contacto = () => {
             </div>
             <div className="info-block">
               <p className="info-title">Redes Sociais</p>
-            </div>
-            <div className="social-row">
-              {SOCIAL_LINKS.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="social-btn">
-                  {s.icon}
-                </a>
-              ))}
+              <div className="social-row" style={{ marginTop: '10px' }}>
+                {SOCIAL_LINKS.map((s) => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="social-btn">
+                    {s.icon}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

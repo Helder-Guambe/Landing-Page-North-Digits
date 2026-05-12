@@ -14,9 +14,14 @@ const Footer = () => {
   return (
     <footer className="rodape" style={{ backgroundColor: footerBg }}>
       <div className="rodape-conteudo" style={{ padding: '40px 24px' }}>
-        {/*  Sobre */}
+     
         <div>
-          <h3 className="rodape-titulo" style={{ color: titleColor }}>North Digits</h3>
+          <img 
+            src="/SVG/3Artboard 3.svg" 
+            alt="North Digits" 
+            style={{ height: '100px', width: '100px', marginBottom: '0.1rem', display: 'block' }} 
+          />
+          <h3 className="rodape-titulo" style={{ color: titleColor, marginTop: '0.25rem' }}>North Digits</h3>
           <p style={{ marginTop: '0.5rem', lineHeight: '1.4', fontSize: '0.85rem', color: textColor }}>
             Transformação digital ponta-a-ponta, desenvolvimento de software sob medida.
           </p>
@@ -67,7 +72,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/*  Mapa */}
+        {/* Mapa */}
         <div>
           <h4 style={{ color: titleColor, marginBottom: '0.8rem', fontSize: '1rem', fontWeight: 600 }}>Onde estamos</h4>
           <div style={{ width: '100%', height: '150px', borderRadius: '12px', overflow: 'hidden', marginTop: '0.5rem' }}>
