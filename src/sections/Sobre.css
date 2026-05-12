@@ -1,0 +1,237 @@
+/* Sobre.css */
+#sobre-section {
+  width: 100%;
+  padding: 80px 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.sobre-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.sobre-imagem-container {
+  flex: 1;
+  min-width: 260px;
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-imagem {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-conteudo {
+  flex: 1.2;
+  min-width: 280px;
+}
+
+.sobre-subtitulo {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  display: block;
+  text-align: left;
+}
+
+.sobre-titulo {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.sobre-texto {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+  text-align: center;
+  width: 100%;
+}
+
+.sobre-numeros {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  margin-bottom: 35px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.sobre-numero-item {
+  text-align: center;
+  flex: 0 1 auto;
+  min-width: 100px;
+}
+
+.sobre-numero-valor {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
+  line-height: 1;
+  display: block;
+}
+
+.sobre-numero-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-top: 8px;
+  display: block;
+}
+
+.sobre-assinatura {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.sobre-foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.sobre-foto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sobre-assinatura-texto {
+  text-align: left;
+}
+
+.sobre-nome {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  display: block;
+}
+
+.sobre-cargo {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Modal */
+.sobre-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.sobre-modal-imagem {
+  max-width: 70vw;
+  max-height: 70vh;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .sobre-inner {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .sobre-imagem-container {
+    max-width: 100% !important;
+  }
+  .sobre-imagem {
+    border-radius: 24px !important;
+  }
+  .sobre-conteudo {
+    min-width: unset !important;
+  }
+  .sobre-texto {
+    text-align: center !important;
+  }
+  .sobre-subtitulo,
+  .sobre-titulo {
+    text-align: left !important;
+  }
+  .sobre-assinatura {
+    justify-content: center !important;
+  }
+}
+
+/* Dark mode */
+html.dark-mode #sobre-section {
+  background-color: #0f172a;
+}
+html.dark-mode .sobre-subtitulo {
+  color: #60a5fa;
+}
+html.dark-mode .sobre-titulo {
+  color: #f1f5f9;
+}
+html.dark-mode .sobre-texto {
+  color: #cbd5e1;
+}
+html.dark-mode .sobre-numero-valor {
+  color: #60a5fa;
+}
+html.dark-mode .sobre-nome {
+  color: #f1f5f9;
+}
+html.dark-mode .sobre-cargo {
+  color: #94a3b8;
+}
+
+/* Light mode */
+html.light-mode #sobre-section {
+  background-color: #fff;
+}
+html.light-mode .sobre-subtitulo {
+  color: #3b82f6;
+}
+html.light-mode .sobre-titulo {
+  color: #0f172a;
+}
+html.light-mode .sobre-texto {
+  color: #64748b;
+}
+html.light-mode .sobre-numero-valor {
+  color: #3b82f6;
+}
+html.light-mode .sobre-nome {
+  color: #1e293b;
+}

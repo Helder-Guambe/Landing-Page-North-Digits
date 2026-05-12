@@ -80,7 +80,7 @@ const Parceiros = () => {
     lineHeight: 1.3,
   };
 
-  // Gradientes das máscaras laterais (esquerda/direita)
+
   const leftGradient = isDark
     ? 'linear-gradient(to right, #0f172a, transparent)'
     : 'linear-gradient(to right, white, transparent)';

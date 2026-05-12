@@ -91,7 +91,7 @@ const FlipCard = ({ titulo, imagem, descricaoItens }) => {
             ))}
           </ul>
           <button className="contact-button" onClick={handleButtonClick}>
-            Ver mais →
+            Ver mais
           </button>
         </div>
       </div>
@@ -163,7 +163,7 @@ const Servicos = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.3s ease;
+          transition: transform 0.9s ease;
         }
         .flip-card-title {
           position: absolute;
