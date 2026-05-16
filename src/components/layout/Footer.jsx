@@ -80,7 +80,7 @@ const Footer = () => {
             style={{ display: 'block', borderRadius: '12px', overflow: 'hidden', textDecoration: 'none' }}
           >
             <img 
-              src="/Localizacao.jpg" 
+              src="/Localizacao.webp" 
               alt="Localização North Digits"
               style={{ width: '100%', height: 'auto', display: 'block' }}
               loading="lazy"

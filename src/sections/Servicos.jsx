@@ -4,7 +4,7 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const servicosLista = [
   {
     titulo: 'Desenvolvimento de Software Personalizado',
-    imagem: '/Desenvolvimendo-software.jpg',
+    imagem: '/Desenvolvimendo-software.webp',
     descricaoItens: [
       'Sites web responsivos e otimizados',
       'Aplicações mobile (iOS/Android)',
@@ -14,7 +14,7 @@ const servicosLista = [
   },
   {
     titulo: 'Consultoria e Transformação Digital',
-    imagem: '/Consultoria.jpg',
+    imagem: '/Consultoria.webp',
     descricaoItens: [
       'Análise estratégica de negócios',
       'Modernização de processos manuais',
@@ -24,7 +24,7 @@ const servicosLista = [
   },
   {
     titulo: 'Análise de Dados & Business Intelligence',
-    imagem: '/Analise-dados.jpg',
+    imagem: '/Analise-dados.webp',
     descricaoItens: [
       'Dashboards interativos e relatórios',
       'Integração de fontes de dados',
@@ -34,7 +34,7 @@ const servicosLista = [
   },
   {
     titulo: 'Literacia Digital & Treinamento',
-    imagem: '/treinamento.jpg',
+    imagem: '/treinamento.webp',
     descricaoItens: [
       'Formacão e educação digital',
       'Workshops de segurança da informação',
@@ -44,7 +44,7 @@ const servicosLista = [
   },
   {
     titulo: 'Soluções Agri-Tech MPME',
-    imagem: '/Agri-tech.jpg',
+    imagem: '/Agri-tech.webp',
     descricaoItens: [
       'Gestão de produção e rastreabilidade',
       'Marketplaces para produtos agrícolas',
@@ -80,7 +80,7 @@ const FlipCard = ({ titulo, imagem, descricaoItens }) => {
     >
       <div className={`flip-card-inner ${flipped ? 'flipped' : ''}`}>
         <div className="flip-card-front">
-          <img src={imagem} alt={titulo} className="flip-card-image" />
+          <img src={imagem} alt={titulo} loading="lazy" className="flip-card-image" />
           <div className="flip-card-title">{titulo}</div>
         </div>
         <div className="flip-card-back">

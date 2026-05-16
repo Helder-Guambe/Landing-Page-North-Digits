@@ -48,7 +48,7 @@ footer, main {
 .hero {
   height: 100vh;
   min-height: 500px;
-  background-image: url('/back-home.jpg');
+  background-image: url('/back-home.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -474,5 +474,5 @@ html.dark-mode .hero::before {
 }
 
 html.dark-mode .hero {
-  background-image: url('/back-home-dark.jpg');
+  background-image: url('/back-home-dark.webp');
 }

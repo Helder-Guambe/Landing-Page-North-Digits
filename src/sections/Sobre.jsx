@@ -227,7 +227,8 @@ const Sobre = () => {
         <div id="sobre-inner" style={styles.innerContainer}>
           <div id="sobre-imagem" style={styles.containerImagem}>
             <img
-              src="/equipe.jpg"
+              src="/equipe.webp"
+              loading="lazy"
               alt="Equipe North Digits"
               style={styles.imagemUnica}
             />
@@ -269,7 +270,8 @@ const Sobre = () => {
 
             <div id="sobre-assinatura" style={styles.assinaturaContainer}>
               <img
-                src="/CEO-north.jpeg"
+                src="/CEO-north.webp"
+                loading="lazy"
                 alt="Inocêncio Nanlelo - CEO"
                 style={{
                   ...styles.fotoCircular,
@@ -290,7 +292,8 @@ const Sobre = () => {
         {modalAberto && (
           <div style={styles.modalOverlay} onClick={() => setModalAberto(false)}>
             <img
-              src="/CEO-north.jpeg"
+              src="/CEO-north.webp"
+              loading="lazy"
               alt="Inocêncio Nanlelo - CEO ampliado"
               style={styles.modalImagem}
               onClick={(e) => e.stopPropagation()}
