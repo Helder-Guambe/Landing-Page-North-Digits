@@ -267,9 +267,8 @@ const Contacto = () => {
                     <option value="custom_software">Desenvolvimento de Software Personalizado</option>
                     <option value="digital_transformation">Consultoria em Transformação Digital</option>
                     <option value="data_analytics">Análise de Dados & Business Intelligence</option>
-                    <option value="digital_literacy">Alfabetização Digital & Treinamento</option>
+                    <option value="digital_literacy">Literacia Digital & Treinamento</option>
                     <option value="agritech">Soluções Agri-Tech & MPME</option>
-                    <option value="industrial_import">Importação Industrial & Máquinas</option>
                   </select>
                 </div>
               </div>
